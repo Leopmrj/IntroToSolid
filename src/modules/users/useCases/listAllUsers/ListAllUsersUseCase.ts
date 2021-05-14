@@ -5,11 +5,19 @@ interface IRequest {
   user_id: string;
 }
 
+// Retorna todos os usuários caso o usuário solicitado seja admin
 class ListAllUsersUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
   execute({ user_id }: IRequest): User[] {
-    // Complete aqui
+		const user = this.usersRepository.findById(user_id);
+		if(!user){
+			throw new Error(`User [${user_id}]not found.`);
+		}
+		if(!user.admin){
+			throw new Error(`User [${user_id}] is not a admin.`)
+		}
+		return this.usersRepository.list();
   }
 }
 
