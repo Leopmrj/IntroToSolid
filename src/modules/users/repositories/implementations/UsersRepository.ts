@@ -22,10 +22,10 @@ class UsersRepository implements IUsersRepository {
 		const user = new User();
 
 		Object.assign(user, {
-			name,
 			email,
+			name,
 			created_at: new Date(),
-			admin: false
+			updated_at: new Date(),
 		});
 
 		this.users.push(user);
@@ -51,6 +51,7 @@ class UsersRepository implements IUsersRepository {
 			(userElement) => userElement.id === receivedUser.id
 		)
 		user.admin = true;
+		user.updated_at = new Date();
 		return user;
   }
 
