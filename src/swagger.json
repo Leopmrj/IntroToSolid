@@ -8,11 +8,12 @@
 			"email": "leo@gmail.com"
 		}
 	},
-	"tags":{
-		"name": "Users",
-		"description": "Users management"
-	}
-	,
+	"tags": [
+		{
+			"name": "Users",
+			"description": "Users management API"
+		}
+	],
 	"paths": {
 		"/Users":{
 			"post": {
